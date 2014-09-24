@@ -1,0 +1,275 @@
+8/25/14
+
+--**CHAPTER 1**--
+-INTRO-
+
+Java:
+designed to be -safe -portable -platform independent -deployed on internet
+*large library of classes
+*selected by college board
+
+-every java program has one or more classes
+
+-every source file contains at most one public class
+
+-source file name must match class name
+public class HelloPrinter  **'public' = anyone can call class
+
+public static void main(String[] args)  **Method--main=methond name  --void - does not return anything(int, str, another class)
+ --(String[] args) = parameters
+
+ {
+
+	System.out.println("Hello World!");  --println = identifier-->calls 'out'-->calls from object 'System'
+
+COMMENTS-
+// comment starts and goes to end of the line
+/* comments starts ant ends after multiple lines with */
+
+notes to others and future self,
+comment to document code (purpose, expectations for use)
+explain rationale of code and potentially complex and confusing algorithms
+
+IDENTIFIERS
+words used in programs
+-defined by you or others in a library+
+defined by the language-reserved words (there are 51)
+--made up of any combination of:
+-letters
+-digits(but not in first character)
+-underscore
+-dollar signs
+**case sensitive**
+Classes --> uppercase letter =String
+
+constants are all uppercase and use underscores to seperate words-->SPEED_OF_LIGHT
+start other identifiers with lower case letter and other words with capital(camel case)-->firstName
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+----------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--**CHAPTER 2**--
+-OBJECTS-
+
+Objects-entities in the program;have properties(attributes);manipulated by invoking methods;
+
+World *turtleWorld* = new World();
+Turtle *myTurtle* = new Turtle(turtleWorld);
+*object*
+----------------------------------------------------------------------
+-CLASSES-
+***Capital first letter***
+classes-a collection of objects;have the same behavior(methods);have the same types of properties;
+
+World turtleWorld = new *World*();
+Turtle myTurtle = new *Turtle*(turtleWorld);
+*classes*
+----------------------------------------------------------------------
+-VARIABLES-
+variables-stores values to be used later
+
+int width = 20;
+
+type= int
+name = width
+value = 20
+
+When a variable is declared, java reserves a chunk of computer memory to hold its value;
+
+the variable name is how you reference that chunk of memory to get the value.
+----------------------------------------------------------------------
+-JAVA PRIMITIVE DATA TYPES-
+boolean: true or false
+int: integer number
+double: real number(floating point)
+----------------------------------------------------------------------
+-PUBLiC INTERFACE-
+collection of methods on an object that can be invoked;may be other methods internal to the object;defined by the object's class.
+----------------------------------------------------------------------
+-INVOKING METHODS-
+use the dot operator to invoke a method on an object
+
+some methods take no arguments: myTurtle.hide();
+
+some methods do take arguments:
+myturtle.forward(100);
+myturtle.setPenWidth(5);
+----------------------------------------------------------------------
+-MUTATOR METHOD-
+modifies the state(properties) of the object
+
+ex:
+myturtle.forward(100);---changes position
+myturtle.setPenWidth(5);---changes width
+----------------------------------------------------------------------
+-ACCESSOR METHOD-
+returns a property of the object;does not chang the state of the object
+
+width = myTurtle.getPenWidth();
+the variable width is now assigned the width of myTurtle's pen
+----------------------------------------------------------------------
+-CONSTRUCTING OBJECTS: THE NEW OPERATOR-
+use the new operator to construct(create) an object
+specify the class of the object and any arguments used in construction
+
+Turtle ^turtle^ - new *Turtle*(#world#);
+*class*
+#argument used in construction#
+^The newly created object is returned^
+---------------------------------------------------------------------
+-OBJECTS AND CLASSES-
+objects of the same class have the same methods and attributes, but have different values for thpse attributes.  reference is only for objects
+-PRIMITIVES-
+primitives are not objects;primitive variables store values not references;when you assign one primitive to another the value gets copied
+---------------------------------------------------------------------
+-IMPORTS-
+java.lang - general support
+java.applet - web applets
+java.awt - graphics
+java.net - network communications
+java.util - general utilities
+java.math - advanced math
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+---------------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+--Implementing classes--
+-a class defines attributes and methods
+- a class abstacts its implementation(methods)
+-helps manage complecity by hiding details
+----------------------------------------------------------------------
+--Encapsulations--
+-instance variables are declared private
+-accessor and mutator methods for attributes are declared public
+-makes it easier for others to use the class by hiding implementation details
+-makes it easier to maintain and enhance the class in the future
+-Instance variables
+visibility type name
+private     int penWidth;
+
+private-accessible by anyone
+public-only accessible by methods in the same class
+--variables--
+local variables-scoped to their block, must be initialized, shadow instance variables of the same name
+parameter variable-scoped to their method
+instance variables-scoped to their object(accessible from all methods), initialized to a default vaulu(0, false, null)
+--Specify Methods--
+-consider the behavior of the class
+-what do objects of the class need to do
+-as you talk about your program, what verbs are used?
+-I.E.  bank account:deposit money, withdraw money, get balance
+-bank account class-
+public void deposit(double amount)
+public void withdraw(double amount)
+public double getBalance()
+visibility   returns   name(parameters)
+--create class--
+public void withdraw(double amount)
+{
+	// code goes here
+}
+public double getBalance()
+{
+	//code goes here
+	return 0;
+}
+
+--Constructors--
+-responsible for initializing newsly created objects
+-invoked auto vie new
+-name must match name of class
+-has no return type(not even void)
+-multiple constructors may be defined for a class
+-one constrctor may call another with restrictions
+
+--Bank Account constructors--
+//default constructor
+public BankAccount()
+
+public BankAccount(double initialBalance)
+		   Type	  name
+
+ _____________________
+|BankAccount          | -------Name				
+|---------------------|
+|Balance: Double      | -------Instance variable: type
+|---------------------|
+|Deposit(amt)         |
+|Withdraw(amt)	      |	-------methods(parameter)/method: return
+|GetBalance: double   |
+|_____________________|
+
+
+----------------------------------------------------------------------
+-JavaDoc-
+-comment with specific syntax to allow javadoc tool to automatically generate documentation
+-start /** ; use tags @param, @return, @pre, @post
+-document classes, methods, instance, variables
+-This-
+this keyword is a reference to the current object(object whose method is being executed)
+--like self in python
+-usually the this keyword is optional and instance varibles and methods can be referenced without it
+-use it to improve clarity
+this.balance - this.balance + amount;
+
+assignment operator checks for identity
+all objects are classes
+numbers are not objects
+assignment operator checks for identities
+literal storage location contains type, name, and contents
+A step sequence that contains precise instructions for what to do at each step and where to go next is unambiguous
+----------------------------------------------------------------------
+-SCANNER-
+java.util.Scanner;
+
+parses primitive types ans strings from a tream
+stream - a sequence of characters(from file, string, keyboard)
+parsing - separating a sequence of characters into tokens(grouping of characters) based on delimiters(seperates words e.g...Whitespace)
+Scanner S = new Scaner(System.in);
+int i = s.nextInt(); --take next token turn into an int
+double d = s.nextDouble();
+
+String str = s.next(); --returns next token
+
+String rest of Line = s.nextLine();
+-TYPES-
+every value is either one of the eight primitives or a referance to an object
+Primitives:
+boolean: true/false
+char 16-bit, Unicode character
+byte: 8-bit, signed integer
+short: 16-bit, signed integer
+int: 32-bit, signed integer
+long: 64-bit, signed integer
+float: 4-byte, floating point (1.4e-45 to 3.4e+38)
+double: 8-byte,floating point (5e-324 to 1.8e+308)
+-PRIMITIVE LITERALS-
+boolean literals: true, false
+char literals: '\u004b', 'a'
+int literals: 299792458 (no decimals)  -2,147,483,648 - 2,147,483,647
+double literals: 1.0, 3.14, 8.99e9
+-CONSTANTS: FINAL KEYWORD-
+declare constants with the final keyword
+compiler will enforce that their value cannot be changed
+final double QUARTER_VALUE = 0.25;
+-CONSTANTS: STATIC FINAL KEYWORD-
+FOR CONSTANTS TO USE IN MULTIPLE METHODS
+public class Math
+{
+	public static final double PI = 3.141595265358979323846
+}
+-REFERENCING STATIC VARIABLES-
+referenced from class
+double circumference = Math.PI * diameter;
+
+
+
+
+
+
+
+
+
+
+
+
+
