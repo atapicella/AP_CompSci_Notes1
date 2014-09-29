@@ -260,8 +260,20 @@ public class Math
 -REFERENCING STATIC VARIABLES-
 referenced from class
 double circumference = Math.PI * diameter;
-
-
+-OPERATORS-
+2+2=4
+2 = operand
++ = operator
+4 = result
+% returns remainder instead of quotient
+7 % 2 = 1
+9 % 3 = 0
+15 % 4 = 3
+-CONVERSIONS-
+convert data value from one type to another
+widening conversion - preserves information(less to more presicion)
+narrowing conversions - may loose information(more to less presice)
+int rounded = Math.round(balance);
 
 
 
